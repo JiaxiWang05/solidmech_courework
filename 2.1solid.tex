@@ -1,0 +1,185 @@
+\documentclass[a4paper,11pt]{article}
+\usepackage{geometry}
+\geometry{margin=1in}
+\usepackage{graphicx}
+\usepackage{amsmath}
+\usepackage{hyperref}
+\usepackage{float}
+\usepackage{caption}
+\usepackage{booktabs}
+\usepackage{cleveref}
+\hypersetup{
+    colorlinks=true,
+    linkcolor=blue,
+    filecolor=magenta,
+    urlcolor=cyan,
+    pdftitle={Stress Concentrations in Solid Mechanics},
+    pdfauthor={Your Full Name},
+    bookmarksopen=true,
+    bookmarksnumbered=true
+}
+\usepackage{titlesec}
+\titleformat{\section}[block]{\bfseries\Large}{\thesection.}{1em}{}
+\titleformat{\subsection}[block]{\bfseries\large}{\thesubsection.}{1em}{}
+\titleformat{\subsubsection}[block]{\bfseries}{\thesubsubsection.}{1em}{}
+
+\title{Stress Concentrations in Solid Mechanics}
+\author{Your Full Name \\ ENGI 2221 - Solid Mechanics and Structures 2}
+\date{January 13, 2025}
+
+\begin{document}
+
+\maketitle
+
+\tableofcontents
+\newpage
+
+% Summary
+\section*{Summary}
+This report investigates the phenomenon of stress concentrations in engineering components. It includes a theoretical analysis of stress distributions around an elliptical window in a thin-walled cylinder and computational simulations of a plate with circular holes using Concept Analyst software. Key findings include the calculation of stress concentration factors (\(K_t\)) and their implications for material and structural design.
+
+Use software like MATLAB, Python (Matplotlib), or Excel for graphs.
+Use CAD or vector tools (e.g., AutoCAD, Inkscape) for custom figures.
+
+
+\newpage
+
+% Introduction
+\section{Introduction}
+\subsection{Background}
+Stress concentrations are critical to engineering design, particularly in structural components like aircraft fuselages. These localized stress increases, often due to geometrical irregularities, can significantly influence a structure's durability.
+
+\subsection{Objectives}
+This report aims to:
+\begin{itemize}
+    \item Conduct a theoretical analysis of tangential stresses around an elliptical window in a thin-walled cylinder.
+    \item Perform computational simulations to evaluate stress distributions and calculate stress concentration factors.
+\end{itemize}
+
+\subsection{Scope}
+This report focuses on static loading conditions for a single elliptical window and circular holes, with key assumptions about uniform material properties and boundary conditions.
+
+\newpage
+
+% Theory
+\section{Theory}
+\subsection{Stress Concentration Fundamentals}
+The stress concentration factor is defined as:
+\[
+K_t = \frac{\sigma_{\text{max}}}{\sigma_{\text{nom}}}
+\]
+For a circular hole in a large plate under uniaxial tension, \(K_t = 3\), while elliptical holes have \(K_t\) values dependent on their aspect ratio.
+
+\subsection{Thin-Walled Cylinder Analysis}
+In a pressurized thin-walled cylinder, the hoop stress is:
+\[
+\sigma_{\theta} = \frac{pD}{2t}
+\]
+where \(p\) is internal pressure, \(D\) is diameter, and \(t\) is wall thickness. The tangential stress \(\sigma_{\beta\beta}\) around the elliptical window is derived as:
+\[
+\sigma_{\beta\beta} = S \left(1 + \frac{2a}{b}\right)
+\]
+
+\subsection{Key Assumptions}
+\begin{itemize}
+    \item Uniform internal pressure.
+    \item Single window with no nearby openings.
+    \item Isotropic material behavior.
+\end{itemize}
+
+\newpage
+
+% Theoretical Analysis
+\section{Theoretical Analysis}
+\subsection{Input Parameters}
+The fuselage dimensions are:
+\begin{itemize}
+    \item Diameter: 5.96 m
+    \item Wall thickness: 2 mm
+    \item Cabin pressure: 75 kPa
+    \item Window dimensions: \(a = 125 \, \text{mm}, b = 0.8a\)
+\end{itemize}
+
+\subsection{Tangential Stress Distribution}
+The stress distribution around the elliptical window is shown in \Cref{fig:theoretical_stress}. The peak tangential stress occurs at the ends of the major axis.
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.8\textwidth]{figures/theoretical_stress.png}
+    \caption{Tangential stress distribution around an elliptical window.}
+    \label{fig:theoretical_stress}
+\end{figure}
+
+\subsection{Material Yield Strength Comparison}
+The maximum stress is compared to typical fuselage materials, such as aluminum alloy with a yield strength of 300 MPa.
+
+\newpage
+
+% Computational Simulations
+\section{Computational Analysis}
+\subsection{Setup}
+The plate geometry includes three circular holes arranged in an equilateral triangle with boundary conditions applied as shown in \Cref{fig:plate_geometry}.
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.7\textwidth]{figures/plate_geometry.png}
+    \caption{Plate geometry with three circular holes.}
+    \label{fig:plate_geometry}
+\end{figure}
+
+\subsection{Results}
+\subsubsection{Variation of \(K_t\) with Geometry}
+\Cref{fig:kt_vs_rd} shows how \(K_t\) varies with \(r/d\) and \(\theta\).
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.8\textwidth]{figures/kt_vs_rd.png}
+    \caption{Stress concentration factor (\(K_t\)) vs. \(r/d\).}
+    \label{fig:kt_vs_rd}
+\end{figure}
+
+\subsubsection{Effect of Plate Size}
+The stress distribution changes as the plate size reduces, highlighting the influence of boundary effects.
+
+\newpage
+
+% Discussion
+\section{Discussion}
+\subsection{Comparison of Theoretical and Computational Results}
+Theoretical predictions align well with computational results, with minor deviations attributed to boundary effects and assumptions in the analytical model.
+
+\subsection{Engineering Implications}
+Understanding stress concentrations is essential for designing robust fuselage structures, particularly in high-stress regions near window openings.
+
+\subsection{Recommendations for Future Work}
+Future studies should include:
+\begin{itemize}
+    \item Fatigue analysis under cyclic loading.
+    \item Multi-window fuselage configurations.
+\end{itemize}
+
+\newpage
+
+% Conclusion
+\section{Conclusion}
+This report successfully evaluated stress concentrations in both theoretical and computational frameworks. The findings emphasize the importance of considering stress concentrations in engineering design to prevent structural failures.
+
+\newpage
+
+% References
+\section*{References}
+\begin{enumerate}
+    \item Book Title, Author, Year, Publisher.
+    \item Journal Article, Author, Year, Journal Name, Volume, Pages.
+\end{enumerate}
+
+\newpage
+
+% Appendices
+\section*{Appendices}
+\subsection*{Appendix A: Parameter Tables}
+Include tables for fuselage and window dimensions.
+
+\subsection*{Appendix B: Concept Analyst Setup}
+Step-by-step guide for computational simulations.
+
+\end{document}
