@@ -1,1 +1,0 @@
-# solidmech_courework
